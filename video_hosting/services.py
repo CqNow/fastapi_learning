@@ -83,6 +83,6 @@ async def open_file(request: Request, video_pk: int) -> tuple:
         content_lenght = (range_end - range_start) + 1
         file = ranged(file, start=range_start, end=range_end + 1)
         status_code = 206
-        headers['Content-Range'] = f'byter {range_start}-{range_end}/{file_size}'
+        headers['Content-Range'] = f'bytes {range_start}-{range_end}/{file_size}'
 
     return file, status_code, content_lenght, headers
